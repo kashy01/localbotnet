@@ -5,3 +5,5 @@
 # 3. Run cnc.py with port (eg. python3 cnc.py 909) on client device.
 
 # 4. Send the payload.py to victim
+
+# Remember to shutdown !!!
