@@ -267,7 +267,7 @@ def Commander(sock,rlock):#cnc server
 				sock.send(("Nodes:"+str(len(socketList))+"\r\n").encode())
 			if cmd_str == 'clear':
 				sock.send("\033[2J\033[1H".encode())
-				sock.send('        d8888                                              \r\n       d88888                                              \r\n      d88P888                                              \r\n     d88P 888 .d88b. 888  888 8888b. 88888b.d88b.  8888b.  \r\n    d88P  888d88""88b888  888    "88b888 "888 "88b    "88b \r\n   d88P   888888  888888  888.d888888888  888  888.d888888 \r\n  d8888888888Y88..88PY88b 888888  888888  888  888888  888 \r\n d88P     888 "Y88P"  "Y88888"Y888888888  888  888"Y888888 \r\n                          888                              \r\n                     Y8b d88P                              \r\n                      "Y88P"                               \r\n'.encode())
+				sock.send("[!] Type Help To See Commands.\r\n\r\n".encode())
 			if cmd_str == 'exit':
 				sock.send(('Bye, '+str(name.strip("\r\n"))+'\033[0m\r\n').encode())
 				sock.close()
