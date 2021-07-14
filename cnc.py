@@ -221,7 +221,7 @@ def Commander(sock,rlock):#cnc server
 	time.sleep(0.5)
 	sock.send("[!] Done...\r\n".encode())
 	time.sleep(0.5)
-	sock.send(("[!] Welcom to the Aoyama C&C Server, "+str(name.strip("\r\n"))+"\r\n").encode())
+	sock.send(("[!] Welcome to the Aoyama C&C Server, "+str(name.strip("\r\n"))+"\r\n").encode())
 	sock.send("==============================================\r\n".encode())
 	time.sleep(1)
 	threading.Thread(target=ShowBot,args=(sock,),daemon=True).start()
