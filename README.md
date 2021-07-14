@@ -1,4 +1,4 @@
-# 1. Change login.txt username and password (eg. XBDM test)
+# 1. Change login.txt username and password (eg. xbdm root)
 
 # 2. Change payload.py to your ip and port.
 
