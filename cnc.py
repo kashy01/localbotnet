@@ -267,6 +267,7 @@ def Commander(sock,rlock):#cnc server
 				sock.send(("Nodes:"+str(len(socketList))+"\r\n").encode())
 			if cmd_str == 'clear':
 				sock.send("\033[2J\033[1H".encode())
+				sock.send(("[!] Welcome to the Aoyama C&C Server, "+str(name.strip("\r\n"))+"\r\n").encode())
 				sock.send("[!] Type Help To See Commands.\r\n\r\n".encode())
 			if cmd_str == 'exit':
 				sock.send(('Bye, '+str(name.strip("\r\n"))+'\033[0m\r\n').encode())
